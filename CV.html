@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zehra Naqavi — CV</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #f5f5f0; color: #1a1a2e; font-family: 'DM Sans', sans-serif; min-height: 100vh; padding: 48px 24px; }
+
+  .back { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: #888; text-decoration: none; letter-spacing: 0.05em; margin-bottom: 48px; transition: color 0.2s; }
+  .back:hover { color: #1a1a2e; }
+
+  .container { max-width: 860px; margin: 0 auto; }
+
+  .hero { display: grid; grid-template-columns: 1fr auto; align-items: start; gap: 32px; margin-bottom: 56px; padding-bottom: 48px; border-bottom: 1px solid #e0e0d8; }
+  .hero-name { font-family: 'Playfair Display', serif; font-size: clamp(36px, 6vw, 56px); font-weight: 600; color: #1a1a2e; line-height: 1.1; margin-bottom: 12px; }
+  .hero-title { font-size: 16px; color: #2a52a0; font-weight: 500; margin-bottom: 16px; letter-spacing: 0.02em; }
+  .hero-bio { font-size: 15px; color: #666; line-height: 1.7; max-width: 480px; font-weight: 300; }
+  .contact-block { display: flex; flex-direction: column; gap: 10px; align-items: flex-end; }
+  .contact-item { font-size: 13px; color: #888; font-family: monospace; }
+  .contact-item a { color: #2a52a0; text-decoration: none; }
+  .contact-item a:hover { text-decoration: underline; }
+  .download-btn { margin-top: 8px; display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: #1a1a2e; color: #f5f5f0; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; border-radius: 4px; text-decoration: none; transition: background 0.2s; cursor: pointer; border: none; }
+  .download-btn:hover { background: #2a52a0; }
+
+  .section { margin-bottom: 52px; }
+  .section-header { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 22px; color: #1a1a2e; }
+  .section-line { flex: 1; height: 1px; background: #e0e0d8; }
+
+  .exp-item { display: grid; grid-template-columns: 1fr auto; gap: 16px; margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid #f0f0e8; }
+  .exp-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .exp-org { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #2a52a0; font-weight: 500; margin-bottom: 6px; }
+  .exp-role { font-size: 17px; font-weight: 500; color: #1a1a2e; margin-bottom: 8px; }
+  .exp-desc { font-size: 14px; color: #666; line-height: 1.7; font-weight: 300; }
+  .exp-date { font-size: 12px; color: #aaa; font-family: monospace; white-space: nowrap; text-align: right; }
+  .exp-location { font-size: 12px; color: #bbb; font-family: monospace; text-align: right; }
+
+  .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .project-card { background: #fff; border: 1px solid #e8e8e0; border-radius: 8px; padding: 20px; transition: border-color 0.2s, transform 0.15s; text-decoration: none; color: inherit; display: block; }
+  .project-card:hover { border-color: #2a52a0; transform: translateY(-2px); }
+  .project-lang { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #2a52a0; font-weight: 500; margin-bottom: 8px; }
+  .project-name { font-size: 16px; font-weight: 500; color: #1a1a2e; margin-bottom: 6px; }
+  .project-desc { font-size: 13px; color: #888; line-height: 1.6; }
+  .project-link { font-size: 12px; color: #2a52a0; margin-top: 10px; display: inline-block; }
+
+  .edu-item { display: grid; grid-template-columns: 1fr auto; gap: 16px; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #f0f0e8; }
+  .edu-item:last-child { border-bottom: none; }
+  .edu-school { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #2a52a0; font-weight: 500; margin-bottom: 6px; }
+  .edu-qual { font-size: 17px; font-weight: 500; color: #1a1a2e; margin-bottom: 4px; }
+  .edu-grade { font-size: 14px; color: #666; font-weight: 300; }
+
+  .skills-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+  .skill-tag { font-size: 13px; border: 1px solid #e0e0d8; border-radius: 4px; padding: 6px 14px; color: #555; background: #fff; transition: all 0.2s; }
+  .skill-tag:hover { border-color: #2a52a0; color: #2a52a0; }
+
+  .cert-item { display: flex; align-items: center; gap: 16px; padding: 16px; background: #fff; border: 1px solid #e8e8e0; border-radius: 8px; margin-bottom: 10px; text-decoration: none; color: inherit; transition: border-color 0.2s, transform 0.15s; }
+  .cert-item:hover { border-color: #2a52a0; transform: translateY(-2px); }
+  .cert-icon { font-size: 20px; flex-shrink: 0; }
+  .cert-name { font-size: 14px; font-weight: 500; color: #1a1a2e; margin-bottom: 2px; }
+  .cert-issuer { font-size: 12px; color: #aaa; font-family: monospace; }
+  .cert-arrow { margin-left: auto; font-size: 14px; color: #2a52a0; }
+
+  @media (max-width: 600px) {
+    .hero { grid-template-columns: 1fr; }
+    .contact-block { align-items: flex-start; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .exp-item, .edu-item { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <a href="https://zehra-naqavi.github.io" class="back">← back to portfolio</a>
+
+  <div class="hero">
+    <div>
+      <h1 class="hero-name">Zehra Naqavi</h1>
+      <p class="hero-title">Aspiring Digital Technology Apprentice</p>
+      <p class="hero-bio">Business BTEC student with hands-on experience in customer-facing roles, industry insight sessions with Deloitte and Coca-Cola, and a growing portfolio of self-built web projects. Applying for Digital Technology degree apprenticeships in 2027.</p>
+    </div>
+    <div class="contact-block">
+      <span class="contact-item">zehranaqavi06@gmail.com</span>
+      <span class="contact-item">London</span>
+      <span class="contact-item"><a href="https://zehra-naqavi.github.io" target="_blank">zehra-naqavi.github.io</a></span>
+      <button class="download-btn" onclick="window.print()">⬇ Download PDF</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <h2 class="section-title">Education</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="edu-item">
+      <div>
+        <p class="edu-school">The Warren School · Barking & Dagenham</p>
+        <p class="edu-qual">Extended National Diploma in Business (BTEC)</p>
+        <p class="edu-grade">D*D*D — 160 UCAS points</p>
+      </div>
+      <div>
+        <p class="exp-date">2024 — 2026</p>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div>
+        <p class="edu-school">Frances Bardsley Academy · Romford</p>
+        <p class="edu-qual">GCSEs</p>
+        <p class="edu-grade">9 GCSEs (grades 4–9) including English Language (5) and Maths (6)</p>
+      </div>
+      <div>
+        <p class="exp-date">2019 — 2024</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <h2 class="section-title">Projects</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="projects-grid">
+      <a class="project-card" href="https://zehra-naqavi.github.io/Matcha-Website" target="_blank">
+        <p class="project-lang">HTML · CSS · live</p>
+        <p class="project-name">Matcha & Co Website</p>
+        <p class="project-desc">A full business website for my matcha drinks pop-up. Built from scratch with no templates.</p>
+        <span class="project-link">View live ↗</span>
+      </a>
+      <a class="project-card" href="https://zehra-naqavi.github.io/imposter-game" target="_blank">
+        <p class="project-lang">JavaScript · live</p>
+        <p class="project-name">Imposter Game</p>
+        <p class="project-desc">A custom word-based social deduction game. Players get secret roles — find the imposters.</p>
+        <span class="project-link">Play now ↗</span>
+      </a>
+      <a class="project-card" href="https://zehra-naqavi.github.io/budget-planner" target="_blank">
+        <p class="project-lang">JavaScript · Chart.js · live</p>
+        <p class="project-name">Budget Planner</p>
+        <p class="project-desc">Track income and expenses with live bar and doughnut charts. Turns red if over budget.</p>
+        <span class="project-link">View live ↗</span>
+      </a>
+      <a class="project-card" href="https://zehra-naqavi.github.io/random-number-generator" target="_blank">
+        <p class="project-lang">JavaScript · live</p>
+        <p class="project-name">Random Number Generator</p>
+        <p class="project-desc">Set a custom range and generate random numbers. Tracks previous results.</p>
+        <span class="project-link">View live ↗</span>
+      </a>
+      <a class="project-card" href="https://zehra-naqavi.github.io/tip-calculator" target="_blank">
+        <p class="project-lang">JavaScript · live</p>
+        <p class="project-name">Tip Calculator</p>
+        <p class="project-desc">Split a bill between any number of people with preset or custom tip percentages.</p>
+        <span class="project-link">View live ↗</span>
+      </a>
+      <a class="project-card" href="https://github.com/Zehra-Naqavi/Python-Password-Strength-Checker" target="_blank">
+        <p class="project-lang">Python · GitHub</p>
+        <p class="project-name">Password Strength Checker</p>
+        <p class="project-desc">Checks passwords for length, uppercase, numbers and symbols. Scores out of 6.</p>
+        <span class="project-link">View code ↗</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <h2 class="section-title">Experience</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="exp-item">
+      <div>
+        <p class="exp-org">Uptree · In Person</p>
+        <p class="exp-role">Coca-Cola Europacific Partners — Application Masterclass</p>
+        <p class="exp-desc">Attended an in-person industry event at the Coca-Cola Europacific Partners office in Uxbridge. Networked with apprenticeship students and professionals, took part in interactive employability activities and developed application skills.</p>
+      </div>
+      <div>
+        <p class="exp-date">Oct 2025</p>
+        <p class="exp-location">Uxbridge</p>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div>
+        <p class="exp-org">Uptree · Virtual</p>
+        <p class="exp-role">Deloitte — Women in Finance Insight Session</p>
+        <p class="exp-desc">Participated in Deloitte's national Women in Finance virtual insight session. Learned about roles across the business and the graduate and apprenticeship schemes they offer. Networked with students and Deloitte staff.</p>
+      </div>
+      <div>
+        <p class="exp-date">Oct 2025</p>
+        <p class="exp-location">Virtual</p>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div>
+        <p class="exp-org">Uptree · Virtual</p>
+        <p class="exp-role">Coca-Cola Europacific Partners — Virtual Insight Webinar</p>
+        <p class="exp-desc">Engaged in professional networking and interactive activities to understand company operations and the range of roles available across the business.</p>
+      </div>
+      <div>
+        <p class="exp-date">Sep 2025</p>
+        <p class="exp-location">Virtual</p>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div>
+        <p class="exp-org">Scouts · London</p>
+        <p class="exp-role">Scout Leader</p>
+        <p class="exp-desc">Supervise activities for a youth scout group including navigation exercises and confidence-building tasks. Currently planning activities for a jamboree event for over 2,000 children.</p>
+      </div>
+      <div>
+        <p class="exp-date">Mar 2026 — Present</p>
+        <p class="exp-location">London</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <h2 class="section-title">Certificates</h2>
+      <div class="section-line"></div>
+    </div>
+    <a class="cert-item" href="https://zehra-naqavi.github.io/certificates/Certificate_for_London_Coca-Cola_Europacific_Partners_Application_Masterclass_-_Zehra_Naqavi (1).pdf" target="_blank">
+      <span class="cert-icon">🏆</span>
+      <div>
+        <p class="cert-name">Coca-Cola Europacific Partners — Application Masterclass</p>
+        <p class="cert-issuer">Uptree · October 2025 · Click to view</p>
+      </div>
+      <span class="cert-arrow">↗</span>
+    </a>
+    <a class="cert-item" href="https://zehra-naqavi.github.io/certificates/Certificate_for_National_Deloitte_Women_in_Finance_Virtual_Insight_Session_-_Zehra_Naqavi (2).pdf" target="_blank">
+      <span class="cert-icon">🏆</span>
+      <div>
+        <p class="cert-name">Deloitte — Women in Finance Virtual Insight Session</p>
+        <p class="cert-issuer">Uptree · October 2025 · Click to view</p>
+      </div>
+      <span class="cert-arrow">↗</span>
+    </a>
+    <a class="cert-item" href="https://zehra-naqavi.github.io/certificates/Certificate_for_National_Coca-Cola_Europacific_Partners_Virtual_Insight_Webinar_-_Zehra_Naqavi (1).pdf" target="_blank">
+      <span class="cert-icon">🏆</span>
+      <div>
+        <p class="cert-name">Coca-Cola Europacific Partners — Virtual Insight Webinar</p>
+        <p class="cert-issuer">Uptree · September 2025 · Click to view</p>
+      </div>
+      <span class="cert-arrow">↗</span>
+    </a>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <h2 class="section-title">Skills</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="skills-grid">
+      <span class="skill-tag">HTML & CSS</span>
+      <span class="skill-tag">JavaScript</span>
+      <span class="skill-tag">Python</span>
+      <span class="skill-tag">GitHub</span>
+      <span class="skill-tag">Microsoft Excel</span>
+      <span class="skill-tag">Microsoft Word</span>
+      <span class="skill-tag">PowerPoint</span>
+      <span class="skill-tag">Communication</span>
+      <span class="skill-tag">Problem Solving</span>
+      <span class="skill-tag">Team Building</span>
+      <span class="skill-tag">Customer Service</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
